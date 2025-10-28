@@ -1,0 +1,73 @@
+<div class="container my-5">
+  <h2 class="text-center mb-4 display-5 fw-bold">My Projects</h2>
+  <div class="divider-custom">
+    <div class="divider-custom-line"></div>
+    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+    <div class="divider-custom-line"></div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    @for (project of projects; track project.id) {
+    <div class="col">
+      <div class="card h-100 shadow-sm project-card" (click)="selectProject(project)" data-bs-toggle="modal"
+        data-bs-target="#projectModal">
+
+        <div class="project-image-wrapper">
+          <img [src]="project.imageUrl" class="card-img-top project-image" [alt]="project.title">
+          <div class="project-overlay">
+            <div class="project-overlay-content">
+              <i class="fas fa-plus fa-3x"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ project.title }}</h5>
+        </div>
+
+        <div class="card-footer text-center">
+          <small class="text-muted">
+            @for (tech of project.technologies; track tech) {
+            <span class="badge bg-secondary me-1">{{ tech }}</span>
+            }
+          </small>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      @if (selectedProject) {
+      <div class="modal-header">
+        <h5 class="modal-title" id="projectModalLabel">{{ selectedProject.title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <img [src]="selectedProject.imageUrl" class="img-fluid mb-3 rounded modal-project-image"
+          [alt]="selectedProject.title">
+        <p>{{ selectedProject.details }}</p>
+        <hr>
+        <h6>Technologies Used:</h6>
+        <p>
+          @for (tech of selectedProject.technologies; track tech) {
+          <span class="badge bg-dark me-1">{{ tech }}</span>
+          }
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+      </div>
+      } @else {
+      <div class="modal-body">
+        <p>Loading project details...</p>
+      </div>
+      }
+    </div>
+  </div>
+</div>

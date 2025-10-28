@@ -1,1 +1,132 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+:root {
+  --app-primary-dark: #2c3e50;
+  --app-secondary-dark: #1a252f;
+  --app-accent: #1abc9c;
+
+  --bs-body-bg: #212529;
+  /* Default dark background */
+  --bs-body-color: #dee2e6;
+  /* Default light text */
+  --bs-emphasis-color: #fff;
+  /* Brighter text */
+  --bs-secondary-bg: #343a40;
+  /* Slightly lighter dark for cards/modals */
+  --bs-tertiary-bg: #495057;
+  --bs-primary-text-emphasis: #6ea8fe;
+  /* Link color adjustments */
+  --bs-link-color: #6ea8fe;
+  --bs-link-hover-color: #8bb9fe;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  /* Bootstrap dark theme variables */
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+router-outlet+* {
+  display: block;
+}
+
+.divider-custom {
+  margin: 2.5rem 0 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider-custom .divider-custom-line {
+  width: 100%;
+  max-width: 7rem;
+  height: 0.25rem;
+  background-color: var(--bs-body-color);
+  border-radius: 1rem;
+  border: none;
+}
+
+.divider-custom .divider-custom-line:first-child {
+  margin-right: 1rem;
+}
+
+.divider-custom .divider-custom-line:last-child {
+  margin-left: 1rem;
+}
+
+.divider-custom .divider-custom-icon {
+  color: var(--bs-body-color);
+  font-size: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--bs-emphasis-color);
+}
+
+.card,
+.modal-content {
+  background-color: var(--bs-secondary-bg);
+  border: 1px solid var(--bs-tertiary-bg);
+}
+
+.badge.bg-dark {
+  background-color: var(--bs-gray-700) !important;
+}
+
+.badge.bg-secondary {
+  background-color: var(--bs-gray-600) !important;
+}
+
+.badge.bg-info {
+  background-color: var(--bs-info-bg-subtle) !important;
+  color: var(--bs-info-text-emphasis) !important;
+}
+
+.form-label {
+  color: var(--bs-body-color);
+}
+
+.form-control {
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-body-color);
+  border-color: var(--bs-border-color);
+}
+
+.form-control:focus {
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-body-color);
+  border-color: var(--app-accent);
+  box-shadow: 0 0 0 0.25rem rgba(26, 188, 156, 0.25);
+}
+
+.form-control::placeholder {
+  color: var(--bs-secondary-color);
+}
+
+.form-control.is-invalid {
+  border-color: var(--bs-danger);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+}
+
+.modal-header,
+.modal-footer {
+  background-color: var(--bs-tertiary-bg);
+  border-bottom-color: var(--bs-border-color);
+  border-top-color: var(--bs-border-color);
+}
+
+.modal-title {
+  color: var(--bs-emphasis-color);
+}
+
+.btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}

@@ -1,0 +1,18 @@
+.app-footer {
+  background-color: var(--app-primary-dark);
+}
+
+.copyright {
+  background-color: var(--app-secondary-dark);
+
+}
+
+.btn-social {
+  border-radius: 50%;
+  display: inline-flex;
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 1.25rem;
+  justify-content: center;
+  align-items: center;
+}
